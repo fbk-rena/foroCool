@@ -3,9 +3,11 @@ var api = {
 };
 var $temasListados = $("#lista-temas");
 
+
 var cargarPagina = function () {
     cargarTemas();
     $('.modal').modal();
+    $("#btn-agregar-form").click(agregarTema);
 };
 
 var cargarTemas = function () {
@@ -27,6 +29,24 @@ var crearTema = function (tema){
     .replace("__autor__", tema.author_name)
     .replace("__numero__", tema.responses_count);
     
-    $temasListados.append(plantillaFinal);
+    $temasListados.prepend(plantillaFinal);
 };
+    
+var agregarTema = function (e){
+    e.preventDefault();
+    
+    var tema = $("#nombre-tema").val();
+    var autor = $("#autor").val();
+    var respuesta = 0;
+    $.post(api.url, {
+        
+        content: tema, 
+        author_name: autor, 
+        responses_count: respuesta
+        
+    }, function (tema){
+        crearTema(tema);
+        $('#modal1').modal('close');
+    });
+}
 $(document).ready(cargarPagina);
