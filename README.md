@@ -2,7 +2,7 @@
 
 ## Puntos base
 
--[] Usuario puede leer todos los temas
+-[x] Usuario puede leer todos los temas
 
 -[] Usuario puede crear temas
 
