@@ -31,17 +31,13 @@ var crearTema = function (tema){
     
     $temasListados.prepend(plantillaFinal);
 };
-var respuesta = function (){
-     $.getJSON(api.url, function (tema) {
-     tema.responses_count;
-     });
-};
     
 var agregarTema = function (e){
     e.preventDefault();
     
     var tema = $("#nombre-tema").val();
     var autor = $("#autor").val();
+    var respuesta = 0;
     $.post(api.url, {
         
         content: tema, 
