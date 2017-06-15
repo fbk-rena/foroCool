@@ -13,7 +13,7 @@ var cargarTemas = function () {
         temas.forEach(crearTema);
     });
 };
-
+/*plantilla*/
 var plantilla = '<tr>' +
     '<td>__tema__</td>' +
     '<td>Por - __autor__</td>' +
