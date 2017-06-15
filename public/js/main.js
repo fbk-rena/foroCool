@@ -32,6 +32,7 @@ var crearTema = function (tema){
     $temasListados.append(plantillaFinal);
 };
 
+// Plantilla nuevo soluciona que en num de respuestas no aparesca undefined
 var plantillaNuevo = '<tr>' +
     '<td>__tema__</td>' +
     '<td>Por - __autor__</td>' +
@@ -46,6 +47,7 @@ var crearTemaNuevo = function (tema){
     .replace("__numero__", tema.responses_count);
     
     $temasListados.append(plantillaFinalNuevo);
+
 };
 
 
