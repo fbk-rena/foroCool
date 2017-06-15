@@ -2,24 +2,84 @@
 
 <!DOCTYPE html>
 <html lang="es">
-  <head>
+
+<head>
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title></title>
-  </head>
-  <body>
+</head>
 
-    <h1>Aqui van todos los temas</h1>
-    
+<body>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#!" class="brand-logo center"><i class="medium material-icons">question_answer</i>Foro Cool</a>
+            <form class="right">
+                <div class="input-field">
+                    <input id="search" type="search" required>
+                    <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                    <i class="material-icons">close</i>
+                </div>
+            </form>
+        </div>
+    </nav>
+    <h1 class="center">A que foro te unes?</h1>
+    <!--Boton Modal -->
+    <a id="btn-agragar" class="btn waves-effect waves-light pink right" href="#modal1">Agregar Tema</a>
+    <!--Tabla temas-->
+    <table class=" container highlight centered">
+        <thead>
+            <tr>
+                <th></th>
+                <th rowspan="3">Nuestros Foros</th>
+            </tr>
+        </thead>
+
+        <tbody id="lista-temas">
+            <tr>
+                <td>Nombre tema</td>
+                <td>Por - autor</td>
+                <td> # Respuestas</td>
+            </tr>
+        </tbody>
+    </table>
+    <!--Modal-->
+    <div id="modal1" class="modal bottom-sheet">
+        <div class="modal-content">
+            <h4>Nueva tarea</h4>
+            <div class="row">
+                <form class=" center col s12">
+                    <div class="row">
+                       <div class="input-field col s8">
+                            <input id="nombre-tema" type="text" class="validate">
+                            <label for="first_name">Nombre Tema</label>
+                        </div>
+                        <div class="input-field col s8">
+                            <i class="material-icons prefix">account_circle</i>
+                            <input id="Autor" type="text" class="validate">
+                            <label for="first_name">Autor</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a class="waves-effect waves-teal btn-flat modal-action modal-close">Cancelar</a>
+            <button id="add-form" class="btn  waves-effect waves-light pink right" type="submit" name="submit">Agregar</button>
+        </div>
+    </div>
+
+
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
     <script src="js/functions.js"></script>
     <script src="js/main.js"></script>
-    
-  </body>
+
+</body>
+
 </html>
