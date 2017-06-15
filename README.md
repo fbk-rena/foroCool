@@ -4,7 +4,7 @@
 
 -[x] Usuario puede leer todos los temas
 
--[] Usuario puede crear temas
+-[x] Usuario puede crear temas
 
 -[] Usuario puede filtrar temas en base a titulo
 
