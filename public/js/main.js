@@ -8,7 +8,7 @@ var cargarPagina = function () {
     cargarTemas();
     $('.modal').modal();
     $("#btn-agregar-form").click(agregarTema);
-    autocomplete();
+    $("#search").change(buscarTema);
 };
 
 var cargarTemas = function () {
@@ -71,10 +71,11 @@ var buscarTema = function (e) {
     e.preventDefault();
 
     $.getJSON(api.url, function (temas) {
-        var busqueda = $("#search").val().toLowerCase();
-        var temasFiltrados = temas.filter(function (tema){
+        var busqueda = $("#search").val();
+        var temasFiltrados = (temas.content).filter(function (tema){
             return temas.content.toLowerCase().indexOf(busqueda)>= 0;
         }); 
+        console.log(temasFiltrados)
         return temasFiltrados;
     });
  crearTema(temasFiltrados);

@@ -2,11 +2,30 @@
 
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
+
+<head>
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Foro Cool</title>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#!" class="brand-logo center"><i class="medium material-icons">question_answer</i>Foro Cool</a>
+            <form class="right">
+                <div class="input-field">
+                    <input id="search" type="search" required>
+                    <label class="label-icon autocomplete" for="search"><i class="material-icons">search</i></label>
+                    <a href="#"><i class="material-icons">close</i></a>
+                </div>
+            </form>
+        </div>
+    </nav>
 
     <h1>Aqui va el contenido de tema individual</h1>
     <!-- Borar cuando se entienda como pasar info con topic id-->
@@ -14,12 +33,35 @@
     <a href='verTopic.html?topic_id=2'>Algo asi</a><br/>
     <a href='verTopic.html?topic_id=1'>O asi</a>
     <!-- Borar cuando se entienda como pasar info con topic id-->
-    
-     <!-- jQuery -->
+    <section id="respuestas" class="container">
+        <div class=" container respuesta">
+            <p class="mng-respuesta">__mensajeRespuesta__ <span> Por - __autor__</span></p>
+        </div>
+    </section>
+    <section id="nuevaRespuesta" class="container">
+        <div class="row">
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="mnsg-resp" class="materialize-textarea" data-length="120"></textarea>
+                        <label for="textarea1">Respuesta</label>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="resp-autor" type="text" data-length="10">
+                            <label for="input_text">Autor</label>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+    <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
-
-
+    <script type="text/javascript" src="js/materialize.min.js"></script>
     <script src="js/functions.js"></script>
+    <script src="js/main.js"></script>
     <script src="js/verTopic.js"></script>
-  </body>
+</body>
+
 </html>
