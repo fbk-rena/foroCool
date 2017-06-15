@@ -1,0 +1,27 @@
+{
+  "name": "foroCool",
+  "version": "1.0.0",
+  "description": "Proyecto final Sprint 5",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fbk-rena/sprint-5-boilerplate.git"
+  },
+  "keywords": [
+    "js.",
+    "xhr.",
+    "json"
+  ],
+  "author": "LoRena F.B. <fbk.rena@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fbk-rena/pokemon"
+  },
+  "homepage": "https://github.com/fbk-rena/sprint-5-boilerplate.git#readme",
+  "dependencies": {
+    "express": "^4.15.3"
+  }
+}
