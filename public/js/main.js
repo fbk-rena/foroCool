@@ -29,23 +29,40 @@ var crearTema = function (tema){
     .replace("__autor__", tema.author_name)
     .replace("__numero__", tema.responses_count);
     
-    $temasListados.prepend(plantillaFinal);
+    $temasListados.append(plantillaFinal);
 };
+
+var plantillaNuevo = '<tr>' +
+    '<td>__tema__</td>' +
+    '<td>Por - __autor__</td>' +
+    '<td><span class="new badge"></td>' +
+    '</tr>';
+
+var crearTemaNuevo = function (tema){
+    var plantillaFinalNuevo = "";
+    
+    plantillaFinalNuevo += plantillaNuevo.replace("__tema__", tema.content)
+    .replace("__autor__", tema.author_name)
+    .replace("__numero__", tema.responses_count);
+    
+    $temasListados.append(plantillaFinalNuevo);
+};
+
+
+
     
 var agregarTema = function (e){
     e.preventDefault();
     
     var tema = $("#nombre-tema").val();
     var autor = $("#autor").val();
-    var respuesta = 0;
     $.post(api.url, {
         
         content: tema, 
         author_name: autor, 
-        responses_count: respuesta
         
     }, function (tema){
-        crearTema(tema);
+        crearTemaNuevo(tema);
         $('#modal1').modal('close');
     });
 }
