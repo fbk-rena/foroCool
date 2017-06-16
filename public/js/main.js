@@ -3,22 +3,24 @@ var api = {
 };
 var $temasListados = $("#lista-temas");
 
+var arregloTema = [];
 
 var cargarPagina = function () {
     cargarTemas();
     $('.modal').modal();
     $("#btn-agregar-form").click(agregarTema);
-    $("#search").change(buscarTema);
+    $('#filtro').submit(buscarTema);
 };
 
 var cargarTemas = function () {
     $.getJSON(api.url, function (temas) {
+        arregloTema = temas;
         temas.forEach(crearTema);
     });
 };
 //plantilla
 var plantilla = '<tr>' +
-    '<td>__tema__</td>' +
+    '<td><a href="topic.html?topic_id=__id__">__tema__</a></td>'  +
     '<td>Por - __autor__</td>' +
     '<td> __numero__ han respondido</td>' +
     '</tr>';
@@ -26,7 +28,7 @@ var plantilla = '<tr>' +
 var crearTema = function (tema) {
     var plantillaFinal = "";
 
-    plantillaFinal += plantilla.replace("__tema__", tema.content)
+    plantillaFinal = plantilla.replace("__tema__", tema.content)
         .replace("__autor__", tema.author_name)
         .replace("__numero__", tema.responses_count);
 
@@ -35,15 +37,17 @@ var crearTema = function (tema) {
 
 // Plantilla nuevo soluciona que en num de respuestas no aparesca undefined
 var plantillaNuevo = '<tr>' +
-    '<td>__tema__</td>' +
+    '<td><a>href="topic.html?topic_id=__id__">__tema__</a></td>' +
     '<td>Por - __autor__</td>' +
     '<td><span class="new badge"></td>' +
     '</tr>';
 
+
 var crearTemaNuevo = function (tema) {
     var plantillaFinalNuevo = "";
 
-    plantillaFinalNuevo += plantillaNuevo.replace("__tema__", tema.content)
+    plantillaFinalNuevo = plantillaNuevo.replace("__id__", tema.id)
+        .replace("__tema__", tema.content)
         .replace("__autor__", tema.author_name)
         .replace("__numero__", tema.responses_count);
 
@@ -69,15 +73,14 @@ var agregarTema = function (e) {
 
 var buscarTema = function (e) {
     e.preventDefault();
-
-    $.getJSON(api.url, function (temas) {
-        var busqueda = $("#search").val();
-        var temasFiltrados = (temas.content).filter(function (tema){
-            return temas.content.toLowerCase().indexOf(busqueda)>= 0;
-        }); 
-        console.log(temasFiltrados)
-        return temasFiltrados;
+    
+    var busqueda = $("#search").val().toLowerCase();
+    var temasFiltrados = arregloTema.filter(function (tema) {
+        return tema.content.toLowerCase().indexOf(busqueda) >= 0;
     });
- crearTema(temasFiltrados);
+    $("#search").val("");
+    $temasListados.html("");
+    
+    temasFiltrados.forEach(crearTema);
 };
 $(document).ready(cargarPagina);
